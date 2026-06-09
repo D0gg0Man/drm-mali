@@ -18,8 +18,6 @@ Depends: ${shlibs:Depends}, ${misc:Depends},
          libegl1
 Description: DRM ioctl shim for Mali/HWC2 on FuriOS
  LD_PRELOAD shim intercepting DRM ioctls which fail against the Mali
- DRM driver on FuriOS devices. Presentation is handled by Android HWC2;
- this shim stubs the DRM path and maintains a dumb KMS framebuffer copy
- for screen capture tools.
+ DRM driver on FuriOS devices. Presentation is handled by Android HWC2.
  .
  Tested on Furiphone FLX1 (Dimensity 900, Mali-G68 MC4) running FuriOS.

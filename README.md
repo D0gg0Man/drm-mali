@@ -7,7 +7,11 @@ capture tools.
 
 Tested on Furiphone FLX1 (Dimensity 900, Mali-G68 MC4) running FuriOS.
 
-*Building*
+*Pre-built binary*
+
+A pre-built aarch64 binary is included as drm_shim.so.
+
+*Building from source*
 
 ```
 make

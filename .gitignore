@@ -1,4 +1,3 @@
-*.so
 *.o
 debian/.debhelper/
 debian/drm-mali/
