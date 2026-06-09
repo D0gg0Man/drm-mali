@@ -4,4 +4,4 @@ drm-mali (1.1.0-1) forky; urgency=medium
     in_hook, LRU eviction, fake fb_id base at 0x80000000.
   * Pre-built aarch64 binary included.
 
- -- D0gg0Man <dogman@users.noreply.github.com>  Tue, 09 Jun 2026 13:32:04 +1000
+ -- D0gg0Man <dogman@users.noreply.github.com>  Tue, 09 Jun 2026 13:43:45 +1000
