@@ -14,7 +14,7 @@
  *   0xa2  SETCRTC      -- succeed silently
  *   0xb0  PAGE_FLIP    -- redirect to dumb buffer
  */
- 
+
 #define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
@@ -31,30 +31,30 @@
 #include <hybris/gralloc/gralloc.h>
 #include <xf86drm.h>
 #include <xf86drmMode.h>
- 
+
 #define MAX 64
- 
+
 static uint32_t frame_w = 0, frame_h = 0;
- 
+
 static struct { uint32_t prime_fd; buffer_handle_t gralloc; } gmap[MAX];
 static int gmap_n = 0;
- 
+
 static struct { uint32_t gem, fb_id; } fmap[MAX];
 static int fmap_n = 0;
- 
+
 static uint32_t  dumb_handle = 0, dumb_fb_id = 0, dumb_pitch = 0;
 static void     *dumb_map    = NULL;
 static size_t    dumb_size   = 0;
 static uint32_t  next_fake   = 0x80000000u;
 static __thread int in_hook  = 0;
 static int       crtc_set    = 0;
- 
+
 typedef int (*ioctl_t)(int, unsigned long, ...);
 static ioctl_t real_ioctl = NULL;
 static void ensure_real(void) {
     if (!real_ioctl) real_ioctl = dlsym(RTLD_NEXT, "ioctl");
 }
- 
+
 void drm_shim_register_bo(uint32_t prime_fd, buffer_handle_t gralloc) {
     for (int i = 0; i < gmap_n; i++)
         if (gmap[i].prime_fd == prime_fd) { gmap[i].gralloc = gralloc; return; }
@@ -110,7 +110,7 @@ static int init_dumb(int fd) {
     if (dumb_map == MAP_FAILED) { dumb_map=NULL; in_hook=saved; return -1; }
     in_hook=saved; return 0;
 }
- 
+
 int drmModeAddFB2WithModifiers(int fd, uint32_t w, uint32_t h, uint32_t fmt,
     const uint32_t handles[4], const uint32_t pitches[4], const uint32_t offsets[4],
     const uint64_t mod[4], uint32_t *buf_id, uint32_t flags) {
