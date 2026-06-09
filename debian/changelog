@@ -1,7 +1,7 @@
 drm-mali (1.1.0-1) forky; urgency=medium
-
+ 
   * Refactored for multi-device use: dynamic frame dimensions, thread-local
     in_hook, LRU eviction, fake fb_id base at 0x80000000.
   * Pre-built aarch64 binary included.
-
- -- D0gg0Man <dogman@users.noreply.github.com>  Tue, 09 Jun 2026 13:21:54 +1000
+ 
+ -- D0gg0Man <dogman@users.noreply.github.com>  Tue, 09 Jun 2026 13:26:01 +1000
