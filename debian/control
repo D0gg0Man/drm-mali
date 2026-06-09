@@ -1,0 +1,25 @@
+Source: drm-mali
+Section: libs
+Priority: optional
+Maintainer: D0gg0Man <dogman@users.noreply.github.com>
+Build-Depends: debhelper-compat (= 13),
+               libdrm-dev,
+               libegl-dev,
+               libhybris-dev,
+               libgralloc-dev
+Standards-Version: 4.6.2
+Homepage: https://github.com/D0gg0Man/drm-mali
+Rules-Requires-Root: no
+
+Package: drm-mali
+Architecture: arm64
+Depends: ${shlibs:Depends}, ${misc:Depends},
+         libgralloc1,
+         libegl1
+Description: DRM ioctl shim for Mali/HWC2 on FuriOS
+ LD_PRELOAD shim intercepting DRM ioctls which fail against the Mali
+ DRM driver on FuriOS devices. Presentation is handled by Android HWC2;
+ this shim stubs the DRM path and maintains a dumb KMS framebuffer copy
+ for screen capture tools.
+ .
+ Tested on Furiphone FLX1 (Dimensity 900, Mali-G68 MC4) running FuriOS.
